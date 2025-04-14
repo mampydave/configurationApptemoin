@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Age List</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+    <h1 class="text-3xl font-bold mb-4">Age List</h1>
+    <table class="min-w-full bg-white border border-gray-300">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="py-2 px-4 border-b">ID</th>
+                <th class="py-2 px-4 border-b">MIN</th>
+                <th class="py-2 px-4 border-b">MAX</th>
+                <th class="py-2 px-4 border-b">BENEFICIAIRE</th>
+                <th class="py-2 px-4 border-b">POURCENTAGE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="age : ${ages}" class="hover:bg-gray-50">
+                <td class="py-2 px-4 border-b text-center" th:text="${age.idage}"></td>
+                <td class="py-2 px-4 border-b text-center" th:text="${age.min_age}"></td>
+                <td class="py-2 px-4 border-b text-center" th:text="${age.max_age}"></td>
+                <td class="py-2 px-4 border-b text-center" th:text="${age.beneficitaire}"></td>
+                <td class="py-2 px-4 border-b text-center" th:text="${age.promo}"></td>
+
+            </tr>
+        </tbody>
+    </table>
+    <a href="/" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">update parametre</a>
+</body>
+</html>

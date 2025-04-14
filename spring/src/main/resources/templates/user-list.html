@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User List</title>
+    <!-- Ajouter Tailwind CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+    <h1 class="text-3xl font-bold mb-4">User List</h1>
+    <table class="min-w-full bg-white border border-gray-300">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="py-2 px-4 border-b">ID</th>
+                <th class="py-2 px-4 border-b">NOM</th>
+                <th class="py-2 px-4 border-b">PRENOM</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${users}" class="hover:bg-gray-50">
+                <td class="py-2 px-4 border-b text-center" th:text="${user.iduser}"></td>
+                <td class="py-2 px-4 border-b text-center" th:text="${user.nom}"></td>
+                <td class="py-2 px-4 border-b text-center" th:text="${user.prenom}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/user-form" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Add New User</a>
+</body>
+</html>

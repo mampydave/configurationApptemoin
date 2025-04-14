@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservations</title>
+    <!-- Inclure Tailwind CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Mes Réservations</h1>
+
+        <!-- Tableau des réservations -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <table class="min-w-full">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID Réservation</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date de Départ</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Heure de Départ</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Vol</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ville de Départ</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ville d'Arrivée</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Siège</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Prix</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Beneficiaire</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Statut</th>
+
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <!-- Boucle sur les réservations -->
+                    <tr th:each="reservation : ${reservations}">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${reservation.idReservation}">ID Réservation</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${reservation.dateDepart.toString()}">Date de Départ</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${reservation.heureDepart.toString()}">Heure de Départ</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${reservation.numeroVol}">Numéro de Vol</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${reservation.villeDepart}">Ville de Départ</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${reservation.villeArrivee}">Ville d'Arrivée</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${reservation.numeroSiege}">Siège</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${reservation.prixBillet}">Prix</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${reservation.typeSiege}">Type</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${reservation.beneficiaire}">Beneficiaire</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900" th:text="${reservation.statutReservation}">Statut</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
